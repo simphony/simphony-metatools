@@ -1,0 +1,8 @@
+SimPhoNy-metatools CHANGELOG
+============================
+
+Release 0.1.0.dev0
+------------------
+
+* Moved from simphony-common
+
