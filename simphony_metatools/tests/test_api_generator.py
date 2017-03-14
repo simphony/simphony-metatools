@@ -1,8 +1,8 @@
 import unittest
 from six import StringIO
 
-from scripts.api_generator import APIGenerator
-from scripts.tests import fixtures
+from simphony_metatools.api_generator import APIGenerator
+from simphony_metatools.tests import fixtures
 
 
 class TestAPIGenerator(unittest.TestCase):

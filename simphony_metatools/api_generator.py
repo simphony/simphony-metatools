@@ -2,7 +2,7 @@ from __future__ import print_function
 
 from simphony_metaparser.utils import traverse
 
-from scripts.utils import cuba_key_to_meta_class_module_name, \
+from .utils import cuba_key_to_meta_class_module_name, \
     cuba_key_to_meta_class_name
 
 

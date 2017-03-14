@@ -37,7 +37,7 @@ class ShortcutImport(object):
         'DataContainer': 'from simphony.core.data_container import DataContainer',  # noqa
         'create_data_container': 'from simphony.core.data_container import create_data_container',  # noqa
         'KEYWORDS': 'from simphony.core.keywords import KEYWORDS',
-        'validation': 'from . import validation',
+        'validation': 'from simphony.cuds import meta_validation',
         'uuid': 'import uuid',
         'Default': 'from simphony.core import Default  # noqa'
     }
@@ -469,9 +469,9 @@ class VariableProperty(ABCProperty):
         if self.shape == [1]:
             return textwrap.dedent("""
             def _validate_{prop_name}(self, value):
-                value = validation.cast_data_type(value, '{cuba_key}')
-                validation.check_valid_shape(value, {shape}, '{cuba_key}')
-                validation.validate_cuba_keyword(value, '{cuba_key}')
+                value = meta_validation.cast_data_type(value, '{cuba_key}')
+                meta_validation.check_valid_shape(value, {shape}, '{cuba_key}')
+                meta_validation.validate_cuba_keyword(value, '{cuba_key}')
                 return value
             """.format(prop_name=self.name,
                        cuba_key=cuba_key,
@@ -479,9 +479,9 @@ class VariableProperty(ABCProperty):
         else:
             return textwrap.dedent("""
             def _validate_{prop_name}(self, value):
-                value = validation.cast_data_type(value, '{cuba_key}')
-                validation.check_valid_shape(value, {shape}, '{cuba_key}')
-                validation.check_elements(value, {shape}, '{cuba_key}')
+                value = meta_validation.cast_data_type(value, '{cuba_key}')
+                meta_validation.check_valid_shape(value, {shape}, '{cuba_key}')
+                meta_validation.check_elements(value, {shape}, '{cuba_key}')
 
                 return value
             """.format(prop_name=self.name,
