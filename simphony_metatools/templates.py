@@ -37,7 +37,7 @@ class ShortcutImport(object):
         'DataContainer': 'from simphony.core.data_container import DataContainer',  # noqa
         'create_data_container': 'from simphony.core.data_container import create_data_container',  # noqa
         'KEYWORDS': 'from simphony.core.keywords import KEYWORDS',
-        'validation': 'from . import validation',
+        'validation': 'from simphony.cuds import meta_validation',
         'uuid': 'import uuid',
         'Default': 'from simphony.core import Default  # noqa'
     }
