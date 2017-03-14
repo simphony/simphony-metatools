@@ -191,7 +191,7 @@ def ontology_with_reimplemented_variable_properties():
 
 def complex_ontology_output_gravity_model():
     return '''from simphony.core import Default  # noqa
-from . import validation
+from simphony.cuds import meta_validation
 from simphony.core.cuba import CUBA
 from .physics_equation import PhysicsEquation
 class GravityModel(PhysicsEquation):
@@ -240,8 +240,8 @@ class GravityModel(PhysicsEquation):
 
     def _validate_acceleration(self, value):
         value = validation.cast_data_type(value, 'ACCELERATION')
-        validation.check_valid_shape(value, [1], 'ACCELERATION')
-        validation.validate_cuba_keyword(value, 'ACCELERATION')
+        meta_validation.check_valid_shape(value, [1], 'ACCELERATION')
+        meta_validation.validate_cuba_keyword(value, 'ACCELERATION')
         return value
 
     def _default_acceleration(self):

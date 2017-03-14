@@ -10,7 +10,6 @@ from scripts.api_generator import APIGenerator
 from scripts.cuba_enum_generator import CUBAEnumGenerator
 from scripts.keywords_generator import KeywordsGenerator
 from scripts.meta_class_generator import MetaClassGenerator
-from scripts.validation_generator import ValidationGenerator
 
 
 @click.command()
@@ -74,4 +73,3 @@ def cli(yaml_dir, module_root_path, overwrite):
     api_generator = APIGenerator()
     with open(api_output, "wb") as f:
         api_generator.generate(ontology, f)
-
