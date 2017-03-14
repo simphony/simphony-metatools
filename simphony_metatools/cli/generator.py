@@ -75,5 +75,3 @@ def cli(yaml_dir, module_root_path, overwrite):
     with open(api_output, "wb") as f:
         api_generator.generate(ontology, f)
 
-    validation_generator = ValidationGenerator()
-    validation_generator.generate(meta_class_output)
