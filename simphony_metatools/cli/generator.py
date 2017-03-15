@@ -6,10 +6,10 @@ import shutil
 
 from simphony_metaparser.yamldirparser import YamlDirParser
 
-from scripts.api_generator import APIGenerator
-from scripts.cuba_enum_generator import CUBAEnumGenerator
-from scripts.keywords_generator import KeywordsGenerator
-from scripts.meta_class_generator import MetaClassGenerator
+from ..api_generator import APIGenerator
+from ..cuba_enum_generator import CUBAEnumGenerator
+from ..keywords_generator import KeywordsGenerator
+from ..meta_class_generator import MetaClassGenerator
 
 
 @click.command()
