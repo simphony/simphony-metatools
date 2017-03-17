@@ -1,6 +1,6 @@
 from six import StringIO
 
-from simphony_metatools.keywords_generator import KeywordsGenerator
+from simphony_metatools.python.keywords_generator import KeywordsGenerator
 from . import fixtures
 from .base_test_case import BaseTestCase
 

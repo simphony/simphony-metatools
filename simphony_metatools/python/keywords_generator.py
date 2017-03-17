@@ -1,6 +1,6 @@
 from simphony_metaparser.utils import traverse, without_cuba_prefix
 
-from . import utils
+from simphony_metatools import utils
 
 
 class KeywordsGenerator(object):

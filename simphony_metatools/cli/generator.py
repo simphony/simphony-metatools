@@ -1,23 +1,19 @@
 from __future__ import print_function
 
 import click
-import os
-import shutil
 
 from simphony_metaparser.yamldirparser import YamlDirParser
-
-from ..api_generator import APIGenerator
-from ..cuba_enum_generator import CUBAEnumGenerator
-from ..keywords_generator import KeywordsGenerator
-from ..meta_class_generator import MetaClassGenerator
+from simphony_metatools.python.python_generator import PythonGenerator
+from simphony_metatools.owl.owl_json_ld_generator import OWLJSONLDGenerator
 
 
 @click.command()
 @click.argument('yaml_dir', type=click.Path())
-@click.argument('module_root_path', type=click.Path())
+@click.argument('output_path', type=click.Path())
+@click.option('-f', '--format', default="python")
 @click.option('-O', '--overwrite', is_flag=True, default=False,
               help='Overwrite OUT_PATH')
-def cli(yaml_dir, module_root_path, overwrite):
+def cli(yaml_dir, output_path, format, overwrite):
     """ Create the Simphony Metadata classes
 
     yaml_file:
@@ -32,44 +28,15 @@ def cli(yaml_dir, module_root_path, overwrite):
         Allow overwrite of the file.
     """
 
-    meta_class_output = os.path.join(module_root_path, "cuds", "meta")
-    api_output = os.path.join(module_root_path, "cuds", "meta", "api.py")
-    keyword_output = os.path.join(module_root_path, "core", "keywords.py")
-    cuba_output = os.path.join(module_root_path, "core", "cuba.py")
-
-    if any([os.path.exists(x) for x in [
-        meta_class_output, keyword_output, cuba_output]
-           ]):
-        if overwrite:
-            try:
-                shutil.rmtree(meta_class_output)
-                os.remove(keyword_output)
-                os.remove(cuba_output)
-            except OSError:
-                pass
-        else:
-            raise OSError('Generated files already present. '
-                          'Will not overwrite without --overwrite')
-
-    try:
-        os.mkdir(meta_class_output)
-    except OSError:
-        pass
-
     parser = YamlDirParser()
     ontology = parser.parse(yaml_dir)
 
-    generator = KeywordsGenerator()
-    with open(keyword_output, "wb") as f:
-        generator.generate(ontology, f)
+    if format == "python":
+        generator = PythonGenerator()
+    elif format == "owl-jsonld":
+        generator = OWLJSONLDGenerator()
+    else:
+        raise click.BadOptionUsage("Supported output formats: "
+                                   "python, owl-jsonld")
 
-    generator = CUBAEnumGenerator()
-    with open(cuba_output, "wb") as f:
-        generator.generate(ontology, f)
-
-    meta_class_generator = MetaClassGenerator()
-    meta_class_generator.generate(ontology, meta_class_output)
-
-    api_generator = APIGenerator()
-    with open(api_output, "wb") as f:
-        api_generator.generate(ontology, f)
+    generator.generate(ontology, output_path, overwrite=overwrite)

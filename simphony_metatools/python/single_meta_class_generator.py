@@ -1,12 +1,10 @@
 from __future__ import print_function
 
 from simphony_metaparser.nodes import FixedProperty, VariableProperty
-
 from simphony_metaparser.utils import (
     traverse_to_root)
-
-from . import templates
-from . import utils
+from simphony_metatools import utils
+from simphony_metatools.python import templates
 
 # A list of the known values for fixed property.
 # It does not include parent and data, as they are handled in a special way

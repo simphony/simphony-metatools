@@ -1,10 +1,11 @@
 from __future__ import print_function
+
 from six import StringIO
 
-from simphony_metatools.single_meta_class_generator import (
+from simphony_metatools.python.single_meta_class_generator import (
     SingleMetaClassGenerator)
-from .base_test_case import BaseTestCase
 from . import fixtures
+from .base_test_case import BaseTestCase
 
 
 class TestSingleMetaClassGenerator(BaseTestCase):

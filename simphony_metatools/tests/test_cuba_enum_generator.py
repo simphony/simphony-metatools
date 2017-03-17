@@ -1,8 +1,9 @@
 import unittest
+
 from six import StringIO
 
 from simphony_metaparser.nodes import CUDSItem
-from simphony_metatools.cuba_enum_generator import CUBAEnumGenerator
+from simphony_metatools.python.cuba_enum_generator import CUBAEnumGenerator
 from simphony_metatools.tests import fixtures
 
 
