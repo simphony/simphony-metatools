@@ -1,8 +1,8 @@
 from six import StringIO
 
 from simphony_metatools.python.keywords_generator import KeywordsGenerator
-from . import fixtures
-from .base_test_case import BaseTestCase
+from simphony_metatools.tests import fixtures
+from simphony_metatools.tests.base_test_case import BaseTestCase
 
 
 class TestKeywordsGenerator(BaseTestCase):

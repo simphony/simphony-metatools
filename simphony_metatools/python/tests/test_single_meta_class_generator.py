@@ -4,8 +4,8 @@ from six import StringIO
 
 from simphony_metatools.python.single_meta_class_generator import (
     SingleMetaClassGenerator)
-from . import fixtures
-from .base_test_case import BaseTestCase
+from simphony_metatools.tests import fixtures
+from simphony_metatools.tests.base_test_case import BaseTestCase
 
 
 class TestSingleMetaClassGenerator(BaseTestCase):
