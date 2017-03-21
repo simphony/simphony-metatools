@@ -9,6 +9,23 @@ from simphony_metatools.python.meta_class_generator import MetaClassGenerator
 
 class PythonGenerator(object):
     def generate(self, ontology, output_path, overwrite=False):
+        """Generates python classes and files from the given ontology.
+
+        Parameters
+        ----------
+        ontology: Ontology
+            The ontology
+        output_path: str
+            a directory path where the various files will be created.
+        overwrite: bool
+            if the files are already present, set to True to overwrite.
+            Otherwise, raises OSError.
+
+        Raises
+        ------
+        OSError
+            If the files are already present and overwrite is False
+        """
         meta_class_output = os.path.join(output_path, "cuds", "meta")
         api_output = os.path.join(output_path, "cuds", "meta", "api.py")
         keyword_output = os.path.join(output_path, "core", "keywords.py")

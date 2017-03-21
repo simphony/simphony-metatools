@@ -16,6 +16,24 @@ class OWLJSONLDGenerator(object):
     """Creates a OWL representation of our data model in JSON-LD.
     """
     def generate(self, ontology, output_path, overwrite=False):
+        """Generates the ontology in the JSON-LD format and
+        writes it to output path.
+
+        Parameters
+        ----------
+        ontology: Ontology
+            The ontology
+        output_path: str
+            a path. Where to write the ontology in JSON-LD
+        overwrite: bool
+            if the file is already present, set to True to overwrite it.
+            Otherwise, raises OSError.
+
+        Raises
+        ------
+        OSError
+            If the file is already present and overwrite is false
+        """
 
         if os.path.exists(output_path):
             if overwrite:
