@@ -1,8 +1,9 @@
 import unittest
 import difflib
+from simphony_metatools.tests.temp_mixin import TempMixin
 
 
-class BaseTestCase(unittest.TestCase):
+class BaseTestCase(TempMixin, unittest.TestCase):
     """Base class for tests, providing some basic services."""
 
     def assertTextEqual(self, t1, t2):
