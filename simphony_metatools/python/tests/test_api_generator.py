@@ -1,7 +1,8 @@
 import unittest
+
 from six import StringIO
 
-from simphony_metatools.api_generator import APIGenerator
+from simphony_metatools.python.api_generator import APIGenerator
 from simphony_metatools.tests import fixtures
 
 

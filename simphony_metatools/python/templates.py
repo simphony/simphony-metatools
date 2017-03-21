@@ -6,7 +6,7 @@ from simphony_metaparser.flags import NoDefault
 from simphony_metaparser.utils import with_cuba_prefix, \
     cuba_key_to_property_name, without_cuba_prefix
 
-from . import utils
+from simphony_metatools import utils
 
 
 class File(object):
