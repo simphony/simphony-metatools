@@ -37,7 +37,13 @@ class PythonGenerator(object):
             if overwrite:
                 try:
                     shutil.rmtree(meta_class_output)
+                except OSError:
+                    pass
+                try:
                     os.remove(keyword_output)
+                except OSError:
+                    pass
+                try:
                     os.remove(cuba_output)
                 except OSError:
                     pass
