@@ -4,7 +4,8 @@ import os
 
 from simphony_metaparser.utils import traverse
 from simphony_metatools import utils
-from simphony_metatools.python.single_meta_class_generator import SingleMetaClassGenerator
+from simphony_metatools.python.single_meta_class_generator import (
+    SingleMetaClassGenerator)
 
 
 class MetaClassGenerator(object):
