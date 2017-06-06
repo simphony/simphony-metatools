@@ -1,5 +1,4 @@
 git+https://github.com/simphony/simphony-metaparser.git@0.2.0#egg=simphony_metaparser
 click == 3.3
-pyyaml == 3.12
 yapf == 0.16.2
 six
