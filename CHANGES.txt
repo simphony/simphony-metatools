@@ -1,8 +1,9 @@
 SimPhoNy-metatools CHANGELOG
 ============================
 
-Release 0.1.0.dev0
+Release 0.1.0
 ------------------
 
 * Moved from simphony-common
+* Introduced yapf directly in the code generator. (#4)
 
