@@ -8,7 +8,7 @@ with open('README.rst', 'r') as readme:
     README_TEXT = readme.read()
 
 # Setup version
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 
 
 @contextlib.contextmanager
