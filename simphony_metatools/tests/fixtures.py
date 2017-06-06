@@ -34,35 +34,40 @@ ATTRIBUTES = ["name", "definition", "key", "shape", "length", "dtype"]
 Keyword = namedtuple("Keyword", ATTRIBUTES)
 
 KEYWORDS = {
-    'CUBA_DATA_ONE': Keyword(
+    'CUBA_DATA_ONE':
+    Keyword(
         name='CubaDataOne',
         definition='',
         key='CUBA_DATA_ONE',
         shape=[],
         length=None,
         dtype=numpy.str),
-    'CUBA_DATA_TWO': Keyword(
+    'CUBA_DATA_TWO':
+    Keyword(
         name='CubaDataTwo',
         definition='',
         key='CUBA_DATA_TWO',
         shape=[],
         length=None,
         dtype=numpy.str),
-    'CUDS_C1': Keyword(
+    'CUDS_C1':
+    Keyword(
         name='CUDSC1',
         definition='',
         key='CUDS_C1',
         shape=[1],
         length=None,
         dtype=None),
-    'CUDS_C2': Keyword(
+    'CUDS_C2':
+    Keyword(
         name='CUDSC2',
         definition='',
         key='CUDS_C2',
         shape=[1],
         length=None,
         dtype=None),
-    'CUDS_ROOT': Keyword(
+    'CUDS_ROOT':
+    Keyword(
         name='CUDSRoot',
         definition='',
         key='CUDS_ROOT',
