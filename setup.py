@@ -49,7 +49,9 @@ setup(
     install_requires=[
             "simphony_metaparser >= 0.2.0",
             "click >= 3.3",
-            "pyyaml >= 3.11"
+            "yapf >= 0.14",
+            "pyyaml >= 3.11",
+            "six"
         ],
     packages=find_packages(),
     entry_points={

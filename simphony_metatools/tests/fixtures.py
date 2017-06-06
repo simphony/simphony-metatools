@@ -30,44 +30,41 @@ from collections import namedtuple
 import numpy
 import uuid  # noqa
 
-
-ATTRIBUTES = [
-    "name", "definition", "key", "shape", "length", "dtype"]
+ATTRIBUTES = ["name", "definition", "key", "shape", "length", "dtype"]
 Keyword = namedtuple("Keyword", ATTRIBUTES)
-
 
 KEYWORDS = {
     'CUBA_DATA_ONE': Keyword(
         name='CubaDataOne',
-        definition='',  # noqa
+        definition='',
         key='CUBA_DATA_ONE',
         shape=[],
         length=None,
         dtype=numpy.str),
     'CUBA_DATA_TWO': Keyword(
         name='CubaDataTwo',
-        definition='',  # noqa
+        definition='',
         key='CUBA_DATA_TWO',
         shape=[],
         length=None,
         dtype=numpy.str),
     'CUDS_C1': Keyword(
         name='CUDSC1',
-        definition='',  # noqa
+        definition='',
         key='CUDS_C1',
         shape=[1],
         length=None,
         dtype=None),
     'CUDS_C2': Keyword(
         name='CUDSC2',
-        definition='',  # noqa
+        definition='',
         key='CUDS_C2',
         shape=[1],
         length=None,
         dtype=None),
     'CUDS_ROOT': Keyword(
         name='CUDSRoot',
-        definition='',  # noqa
+        definition='',
         key='CUDS_ROOT',
         shape=[1],
         length=None,
@@ -194,10 +191,13 @@ def complex_ontology_output_gravity_model():
 from simphony.cuds import meta_validation
 from simphony.core.cuba import CUBA
 from .physics_equation import PhysicsEquation
+
+
 class GravityModel(PhysicsEquation):
     """
     """
     cuba_key = CUBA.GRAVITY_MODEL
+
     def __init__(self, acceleration=Default, name=Default):
         super(GravityModel, self).__init__(name=name)
         self._init_models()
@@ -206,9 +206,7 @@ class GravityModel(PhysicsEquation):
     @classmethod
     def supported_parameters(cls):
         try:
-            base_params = super(
-                GravityModel,
-                cls).supported_parameters()
+            base_params = super(GravityModel, cls).supported_parameters()
         except AttributeError:
             base_params = ()
         return tuple(set((CUBA.ACCELERATION, ) + base_params))
