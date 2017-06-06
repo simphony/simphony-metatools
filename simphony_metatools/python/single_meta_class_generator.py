@@ -1,5 +1,8 @@
 from __future__ import print_function
 
+from six import StringIO
+from yapf.yapflib.yapf_api import FormatCode
+
 from simphony_metaparser.nodes import FixedProperty, VariableProperty
 from simphony_metaparser.utils import (
     traverse_to_root)
@@ -31,6 +34,8 @@ class SingleMetaClassGenerator(object):
         """
         print("Generating for {}".format(item.name))
 
+        render_target = StringIO()
+
         f = templates.File()
         f.imports.add(templates.ShortcutImport("CUBA"))
 
@@ -61,7 +66,8 @@ class SingleMetaClassGenerator(object):
         class_.properties = properties[0]
 
         f.classes.append(class_)
-        f.render(output)
+        f.render(render_target)
+        output.write(FormatCode(render_target.getvalue())[0])
 
     def _extract_properties(self, item):
         """Extracts the properties from the entity.
