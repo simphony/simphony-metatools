@@ -20,6 +20,12 @@ or::
     # build for in-place development
     python setup.py develop
 
+Usage
+-----
+
+Invoke ``simphony-meta-generate`` specifying the yaml directory and the output base directory.
+
+
 Testing
 -------
 
