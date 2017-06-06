@@ -50,7 +50,6 @@ setup(
             "simphony_metaparser >= 0.2.0",
             "click >= 3.3",
             "yapf >= 0.16",
-            "pyyaml >= 3.11",
             "six"
         ],
     packages=find_packages(),
